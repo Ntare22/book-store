@@ -1,34 +1,88 @@
-const genres = [
-  {
-    id: 1,
-    name: 'Science Fiction',
-  },
-  {
-    id: 2,
-    name: 'Adventure',
-  },
-  {
-    id: 3,
-    name: 'Action',
-  },
-  {
-    id: 4,
-    name: 'Economy',
-  },
-];
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/books';
 
-const AddBook = () => (
-  <div>
-    <h2>Add New Book</h2>
+const AddBook = () => {
+  const [title, setTitle] = useState('');
+  const [genre, setGenre] = useState('');
+  const [author, setAuthor] = useState('');
+
+  const dispatch = useDispatch();
+
+  const genres = [
+    {
+      id: 1,
+      name: 'Science Fiction',
+    },
+    {
+      id: 2,
+      name: 'Adventure',
+    },
+    {
+      id: 3,
+      name: 'Action',
+    },
+    {
+      id: 4,
+      name: 'Economy',
+    },
+  ];
+
+  const handleTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const handleGenre = (e) => {
+    e.preventDefault();
+    setGenre(e.target.value);
+  };
+
+  const handleAuthor = (e) => {
+    e.preventDefault();
+    setAuthor(e.target.value);
+  };
+
+  const submitBookToStore = () => {
+    const newBook = {
+      id: uuidv4(),
+      title,
+      author,
+      genre,
+    };
+    dispatch(addBook(newBook));
+  };
+  return (
     <div>
-      <input type="text" />
-      <select name="genres">
-        {genres.map((genre) => <option key={genre.id} value={genre.name}>{genre.name}</option>)}
-      </select>
-      <input type="submit" />
+      <h2>Add New Book</h2>
+      <div>
+        <input
+          id="title"
+          placeholder="Title of the Book"
+          type="text"
+          onChange={handleTitle}
+        />
+        <input
+          id="author"
+          type="text"
+          placeholder="Author"
+          onChange={handleAuthor}
+        />
+        <select id="genres" name="genres" value={genre} onChange={handleGenre} required>
+          <option>Pick Genre</option>
+          {genres.map((genre) => (
+            <option key={genre.id} value={genre.name}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
+        <button onClick={submitBookToStore} type="button">
+          Add Book
+        </button>
+      </div>
     </div>
-
-  </div>
-);
+  );
+};
 
 export default AddBook;
