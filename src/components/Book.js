@@ -5,6 +5,7 @@ const Book = ({ genre, title, author }) => (
     <p id="genre">{genre}</p>
     <h2 id="title">{title}</h2>
     <p id="author">{author}</p>
+    <button type="button">Remove</button>
   </div>
 );
 
