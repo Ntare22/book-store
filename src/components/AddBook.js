@@ -47,11 +47,11 @@ const AddBook = () => {
     dispatch(addBook(newBook));
   };
   return (
-    <div>
+    <div className="add-book-form">
       <h2>Add New Book</h2>
       <div>
         <input
-          id="title"
+          id="title-input"
           placeholder="Title of the Book"
           type="text"
           onChange={handleTitle}
