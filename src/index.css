@@ -1,7 +1,159 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   transition: 0.8s;
   margin: 0 0;
+}
+
+.scroll {
+  overflow: scroll;
+  height: 600px;
+}
+
+body {
+  background-color: #f5f6fa;
+}
+
+header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  border-bottom: 1px solid #888;
+}
+
+header h1 {
+  color: #0290ff;
+}
+
+header ul {
+  margin-left: 15px;
+}
+
+header ul a {
+  padding: 0 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #121212;
+}
+
+.container {
+  margin: auto;
+  width: 70%;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 30px 20px;
+  z-index: -1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 17%;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.buttons button {
+  color: #4386bf;
+}
+
+button:first-child {
+  padding-right: 10px;
+}
+
+.edit-btn {
+  padding: 0 10px;
+}
+
+.rmv-btn {
+  padding: 5px 5px;
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+}
+
+#title {
+  padding: 14px 0;
+}
+
+#genre {
+  color: #888;
+  font-weight: bold;
+}
+
+.book-percentage {
+  padding: 0 50px;
+}
+
+.book-percentage span {
+  font-size: 30px;
+}
+
+.book-percentage p {
+  text-transform: capitalize;
+  color: #888;
+}
+
+.current-chapter h4 {
+  text-transform: uppercase;
+  color: #8b9292;
+  padding: 10px 0;
+}
+
+.current-chapter button {
+  background-color: #0290ff;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  margin-top: 5px;
+}
+
+.book-progress {
+  display: flex;
+  align-items: center;
+}
+
+.add-book-form {
+  border-top: 1px solid #888;
+  padding: 30px 0;
+}
+
+.add-book-form h2 {
+  text-transform: uppercase;
+  color: #888;
+}
+
+.add-book-form input {
+  width: 65%;
+}
+
+.add-book-form select,
+.add-book-form input {
+  margin: 10px 10px 0 0;
+}
+
+.add-book-form select,
+.add-book-form input,
+.add-book-form button {
+  padding: 10px 10px;
+}
+
+.add-book-form button {
+  background: #0290ff;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 10px 35px;
 }
