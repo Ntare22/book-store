@@ -1,8 +1,14 @@
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllBooks } from '../redux/books/books';
 import AddBook from './AddBook';
 import Book from './Book';
 
 const Books = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllBooks());
+  }, []);
   const books = useSelector((state) => state.booksReducer);
   return (
     <div>
@@ -10,9 +16,8 @@ const Books = () => {
         <Book
           key={book.id}
           id={book.id}
-          genre={book.genre}
           title={book.title}
-          author={book.author}
+          genre={book.genre}
         />
       ))}
       <AddBook />
